@@ -67,12 +67,12 @@ export const TechStack: React.FC = () => {
         }}
       >
         {TECH.map((t, i) => {
-          const delay = 8 + i * 6;
-          const opacity = interpolate(frame - delay, [0, 12], [0, 1], {
+          const delay = 10 + i * 20;
+          const opacity = interpolate(frame - delay, [0, 20], [0, 1], {
             extrapolateRight: "clamp",
             extrapolateLeft: "clamp",
           });
-          const scale = interpolate(frame - delay, [0, 8], [0.7, 1], {
+          const scale = interpolate(frame - delay, [0, 15], [0.7, 1], {
             extrapolateRight: "clamp",
             extrapolateLeft: "clamp",
             easing: Easing.bezier(0.34, 1.56, 0.64, 1),

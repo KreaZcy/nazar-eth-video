@@ -21,65 +21,65 @@ export const NazarETHDemo: React.FC = () => {
       </TransitionSeries.Sequence>
       <TransitionSeries.Transition
         presentation={fade()}
-        timing={linearTiming({ durationInFrames: 6 })}
+        timing={linearTiming({ durationInFrames: 8 })}
       />
       <TransitionSeries.Sequence durationInFrames={190}>
         <Hook />
       </TransitionSeries.Sequence>
       <TransitionSeries.Transition
         presentation={slide()}
-        timing={linearTiming({ durationInFrames: 6 })}
+        timing={linearTiming({ durationInFrames: 8 })}
       />
       <TransitionSeries.Sequence durationInFrames={210}>
         <Problem />
       </TransitionSeries.Sequence>
       <TransitionSeries.Transition
         presentation={wipe()}
-        timing={linearTiming({ durationInFrames: 6 })}
+        timing={linearTiming({ durationInFrames: 8 })}
       />
-      <TransitionSeries.Sequence durationInFrames={170}>
+      <TransitionSeries.Sequence durationInFrames={200}>
         <Solution />
       </TransitionSeries.Sequence>
       <TransitionSeries.Transition
         presentation={slide()}
-        timing={linearTiming({ durationInFrames: 6 })}
+        timing={linearTiming({ durationInFrames: 8 })}
       />
       <TransitionSeries.Sequence durationInFrames={280}>
         <HowItWorks />
       </TransitionSeries.Sequence>
       <TransitionSeries.Transition
         presentation={wipe()}
-        timing={linearTiming({ durationInFrames: 6 })}
+        timing={linearTiming({ durationInFrames: 8 })}
       />
       <TransitionSeries.Sequence durationInFrames={220}>
         <FeatureCombo />
       </TransitionSeries.Sequence>
       <TransitionSeries.Transition
         presentation={fade()}
-        timing={linearTiming({ durationInFrames: 6 })}
+        timing={linearTiming({ durationInFrames: 8 })}
       />
       <TransitionSeries.Sequence durationInFrames={180}>
         <Differentiator />
       </TransitionSeries.Sequence>
       <TransitionSeries.Transition
         presentation={slide()}
-        timing={linearTiming({ durationInFrames: 6 })}
+        timing={linearTiming({ durationInFrames: 8 })}
       />
-      <TransitionSeries.Sequence durationInFrames={130}>
+      <TransitionSeries.Sequence durationInFrames={190}>
         <TechStack />
       </TransitionSeries.Sequence>
       <TransitionSeries.Transition
         presentation={wipe()}
-        timing={linearTiming({ durationInFrames: 6 })}
+        timing={linearTiming({ durationInFrames: 8 })}
       />
       <TransitionSeries.Sequence durationInFrames={130}>
         <CTA />
       </TransitionSeries.Sequence>
       <TransitionSeries.Transition
-        presentation={fade()}
-        timing={linearTiming({ durationInFrames: 6 })}
+        presentation={wipe()}
+        timing={linearTiming({ durationInFrames: 8 })}
       />
-      <TransitionSeries.Sequence durationInFrames={140}>
+      <TransitionSeries.Sequence durationInFrames={50}>
         <Outro />
       </TransitionSeries.Sequence>
     </TransitionSeries>
