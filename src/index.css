@@ -1,1 +1,10 @@
 @import "tailwindcss";
+
+@theme {
+  --color-nazar-bg: #0A0E17;
+  --color-nazar-card: #141A2B;
+  --color-nazar-blue: #0052FF;
+  --color-nazar-green: #00FF88;
+  --color-nazar-orange: #FF6B35;
+  --color-nazar-muted: #6B7280;
+}
