@@ -15,7 +15,7 @@ const APPS = [
   {
     name: "Strava",
     color: "#FC4C02",
-    logo: staticFile("/logos/strava-kite.png"),
+    logo: staticFile("/logos/strava-real.png"),
     tagline: "Track your runs & rides",
   },
   {
