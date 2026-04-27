@@ -30,29 +30,29 @@ export const Hook: React.FC = () => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
 
-  const titleOp = interpolate(frame, [0, 12], [0, 1], {
+  const titleOp = interpolate(frame, [0, 18], [0, 1], {
     extrapolateRight: "clamp",
     extrapolateLeft: "clamp",
   });
 
-  const titleY = interpolate(frame, [0, 15], [30, 0], {
+  const titleY = interpolate(frame, [0, 20], [30, 0], {
     extrapolateRight: "clamp",
     extrapolateLeft: "clamp",
     easing: Easing.bezier(0.16, 1, 0.3, 1),
   });
 
-  const andOpacity = interpolate(frame, [50, 65], [0, 1], {
+  const andOpacity = interpolate(frame, [70, 85], [0, 1], {
     extrapolateRight: "clamp",
     extrapolateLeft: "clamp",
   });
 
-  const questionScale = spring({ fps, frame: frame - 70, config: { damping: 10, mass: 0.5 } });
-  const questionOpacity = interpolate(frame, [75, 90], [0, 1], {
+  const questionScale = spring({ fps, frame: frame - 95, config: { damping: 10, mass: 0.5 } });
+  const questionOpacity = interpolate(frame, [100, 118], [0, 1], {
     extrapolateRight: "clamp",
     extrapolateLeft: "clamp",
   });
 
-  const bottomTextOp = interpolate(frame, [100, 115], [0, 1], {
+  const bottomTextOp = interpolate(frame, [135, 155], [0, 1], {
     extrapolateRight: "clamp",
     extrapolateLeft: "clamp",
   });

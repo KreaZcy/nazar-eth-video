@@ -37,13 +37,13 @@ export const Problem = () => {
     extrapolateLeft: "clamp",
   });
 
-  const headerY = interpolate(frame, [0, 15], [-20, 0], {
+  const headerY = interpolate(frame, [0, 25], [-20, 0], {
     extrapolateRight: "clamp",
     extrapolateLeft: "clamp",
     easing: Easing.bezier(0.16, 1, 0.3, 1),
   });
 
-  const bottomOp = interpolate(frame, [120, 140], [0, 1], {
+  const bottomOp = interpolate(frame, [150, 175], [0, 1], {
     extrapolateRight: "clamp",
     extrapolateLeft: "clamp",
   });
@@ -99,7 +99,7 @@ export const Problem = () => {
 
       <div style={{ display: "flex", gap: 28, padding: "0 80px" }}>
         {PAIN.map((point, i) => {
-          const delay = 25 + i * 35;
+          const delay = 35 + i * 40;
           const cardOp = interpolate(frame, [delay, delay + 15], [0, 1], {
             extrapolateRight: "clamp",
             extrapolateLeft: "clamp",
