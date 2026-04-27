@@ -117,8 +117,8 @@ export const HowItWorks: React.FC = () => {
     easing: Easing.bezier(0.16, 1, 0.3, 1),
   });
 
-  const STEPS_START = 20;
-  const DURATION_PER_STEP = 42;
+  const STEPS_START = 30;
+  const DURATION_PER_STEP = 58;
 
   return (
     <AbsoluteFill

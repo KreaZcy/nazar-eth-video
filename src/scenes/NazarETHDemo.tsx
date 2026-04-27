@@ -44,7 +44,7 @@ export const NazarETHDemo: React.FC = () => {
         presentation={slide()}
         timing={linearTiming({ durationInFrames: 8 })}
       />
-      <TransitionSeries.Sequence durationInFrames={270}>
+      <TransitionSeries.Sequence durationInFrames={420}>
         <HowItWorks />
       </TransitionSeries.Sequence>
       <TransitionSeries.Transition

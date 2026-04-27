@@ -11,7 +11,7 @@ export const Outro: React.FC = () => {
   const urlOpacity = interpolate(frame, [25, 45], [0, 1], { extrapolateRight: "clamp", extrapolateLeft: "clamp" });
   const badgeOpacity = interpolate(frame, [35, 55], [0, 1], { extrapolateRight: "clamp", extrapolateLeft: "clamp" });
   const glowOpacity = interpolate(frame, [0, 30], [0, 0.5], { extrapolateRight: "clamp" });
-  const fadeOut = interpolate(frame, [80, 110], [1, 0], { extrapolateRight: "clamp", extrapolateLeft: "clamp" });
+  const fadeOut = interpolate(frame, [80, 108], [1, 0], { extrapolateRight: "clamp", extrapolateLeft: "clamp" });
 
   return (
     <AbsoluteFill style={{ background: C.bg, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", fontFamily: "system-ui, sans-serif", opacity: fadeOut }}>
