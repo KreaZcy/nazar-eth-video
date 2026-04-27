@@ -57,11 +57,11 @@ export const NazarETHDemo: React.FC = () => {
         <S audioSrc="/narration/differentiator.mp3"><Differentiator /></S>
       </TransitionSeries.Sequence>
       <TransitionSeries.Transition presentation={slide()} timing={linearTiming({ durationInFrames: T })} />
-      <TransitionSeries.Sequence durationInFrames={320}>
+      <TransitionSeries.Sequence durationInFrames={213}>
         <S audioSrc="/narration/cta.mp3"><CTA /></S>
       </TransitionSeries.Sequence>
       <TransitionSeries.Transition presentation={fade()} timing={linearTiming({ durationInFrames: T })} />
-      <TransitionSeries.Sequence durationInFrames={234}>
+      <TransitionSeries.Sequence durationInFrames={156}>
         <S audioSrc="/narration/outro.mp3"><Outro /></S>
       </TransitionSeries.Sequence>
     </TransitionSeries>
