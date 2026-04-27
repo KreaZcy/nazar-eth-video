@@ -2,6 +2,7 @@ import { TransitionSeries, linearTiming } from "@remotion/transitions";
 import { fade } from "@remotion/transitions/fade";
 import { wipe } from "@remotion/transitions/wipe";
 import { slide } from "@remotion/transitions/slide";
+import { Audio, staticFile } from "remotion";
 import { Intro } from "./Intro";
 import { Hook } from "./Hook";
 import { Problem } from "./Problem";
@@ -15,7 +16,9 @@ import { Outro } from "./Outro";
 
 export const NazarETHDemo: React.FC = () => {
   return (
-    <TransitionSeries>
+    <>
+      <Audio src={staticFile("/narration.mp3")} />
+      <TransitionSeries>
       <TransitionSeries.Sequence durationInFrames={140}>
         <Intro />
       </TransitionSeries.Sequence>
@@ -83,5 +86,6 @@ export const NazarETHDemo: React.FC = () => {
         <Outro />
       </TransitionSeries.Sequence>
     </TransitionSeries>
+    </>
   );
 };
