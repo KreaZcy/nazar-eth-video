@@ -16,56 +16,56 @@ import { Outro } from "./Outro";
 export const NazarETHDemo: React.FC = () => {
   return (
     <TransitionSeries>
-      <TransitionSeries.Sequence durationInFrames={150}>
+      <TransitionSeries.Sequence durationInFrames={135}>
         <Intro />
       </TransitionSeries.Sequence>
       <TransitionSeries.Transition
         presentation={fade()}
         timing={linearTiming({ durationInFrames: 10 })}
       />
-      <TransitionSeries.Sequence durationInFrames={150}>
+      <TransitionSeries.Sequence durationInFrames={140}>
         <Hook />
       </TransitionSeries.Sequence>
       <TransitionSeries.Transition
         presentation={slide()}
         timing={linearTiming({ durationInFrames: 10 })}
       />
-      <TransitionSeries.Sequence durationInFrames={175}>
+      <TransitionSeries.Sequence durationInFrames={160}>
         <Problem />
       </TransitionSeries.Sequence>
       <TransitionSeries.Transition
         presentation={wipe()}
         timing={linearTiming({ durationInFrames: 10 })}
       />
-      <TransitionSeries.Sequence durationInFrames={175}>
+      <TransitionSeries.Sequence durationInFrames={160}>
         <Solution />
       </TransitionSeries.Sequence>
       <TransitionSeries.Transition
         presentation={slide()}
         timing={linearTiming({ durationInFrames: 10 })}
       />
-      <TransitionSeries.Sequence durationInFrames={265}>
+      <TransitionSeries.Sequence durationInFrames={350}>
         <HowItWorks />
       </TransitionSeries.Sequence>
       <TransitionSeries.Transition
         presentation={wipe()}
         timing={linearTiming({ durationInFrames: 10 })}
       />
-      <TransitionSeries.Sequence durationInFrames={195}>
+      <TransitionSeries.Sequence durationInFrames={190}>
         <FeatureCombo />
       </TransitionSeries.Sequence>
       <TransitionSeries.Transition
         presentation={fade()}
         timing={linearTiming({ durationInFrames: 10 })}
       />
-      <TransitionSeries.Sequence durationInFrames={150}>
+      <TransitionSeries.Sequence durationInFrames={135}>
         <Differentiator />
       </TransitionSeries.Sequence>
       <TransitionSeries.Transition
         presentation={slide()}
         timing={linearTiming({ durationInFrames: 10 })}
       />
-      <TransitionSeries.Sequence durationInFrames={150}>
+      <TransitionSeries.Sequence durationInFrames={140}>
         <TechStack />
       </TransitionSeries.Sequence>
       <TransitionSeries.Transition

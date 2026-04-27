@@ -118,7 +118,7 @@ export const HowItWorks: React.FC = () => {
   });
 
   const STEPS_START = 20;
-  const DURATION_PER_STEP = 31;
+  const DURATION_PER_STEP = 46;
 
   return (
     <AbsoluteFill
