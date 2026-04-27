@@ -14,78 +14,63 @@ import { TechStack } from "./TechStack";
 import { CTA } from "./CTA";
 import { Outro } from "./Outro";
 
+const T = 6;
+
 export const NazarETHDemo: React.FC = () => {
   return (
     <>
-      <Audio src={staticFile("/narration.mp3")} />
+      <Audio src={staticFile("/narration/intro.mp3")} startFrom={0} />
+      <Audio src={staticFile("/narration/hook.mp3")} startFrom={90} />
+      <Audio src={staticFile("/narration/problem.mp3")} startFrom={315} />
+      <Audio src={staticFile("/narration/solution.mp3")} startFrom={625} />
+      <Audio src={staticFile("/narration/howitworks.mp3")} startFrom={910} />
+      <Audio src={staticFile("/narration/featurecombo.mp3")} startFrom={1485} />
+      <Audio src={staticFile("/narration/differentiator.mp3")} startFrom={1740} />
+      <Audio src={staticFile("/narration/techstack.mp3")} startFrom={1975} />
+      <Audio src={staticFile("/narration/cta.mp3")} startFrom={2105} />
+      <Audio src={staticFile("/narration/outro.mp3")} startFrom={2200} />
+
       <TransitionSeries>
-      <TransitionSeries.Sequence durationInFrames={140}>
-        <Intro />
-      </TransitionSeries.Sequence>
-      <TransitionSeries.Transition
-        presentation={fade()}
-        timing={linearTiming({ durationInFrames: 8 })}
-      />
-      <TransitionSeries.Sequence durationInFrames={185}>
-        <Hook />
-      </TransitionSeries.Sequence>
-      <TransitionSeries.Transition
-        presentation={slide()}
-        timing={linearTiming({ durationInFrames: 8 })}
-      />
-      <TransitionSeries.Sequence durationInFrames={200}>
-        <Problem />
-      </TransitionSeries.Sequence>
-      <TransitionSeries.Transition
-        presentation={wipe()}
-        timing={linearTiming({ durationInFrames: 8 })}
-      />
-      <TransitionSeries.Sequence durationInFrames={195}>
-        <Solution />
-      </TransitionSeries.Sequence>
-      <TransitionSeries.Transition
-        presentation={slide()}
-        timing={linearTiming({ durationInFrames: 8 })}
-      />
-      <TransitionSeries.Sequence durationInFrames={420}>
-        <HowItWorks />
-      </TransitionSeries.Sequence>
-      <TransitionSeries.Transition
-        presentation={wipe()}
-        timing={linearTiming({ durationInFrames: 8 })}
-      />
-      <TransitionSeries.Sequence durationInFrames={215}>
-        <FeatureCombo />
-      </TransitionSeries.Sequence>
-      <TransitionSeries.Transition
-        presentation={fade()}
-        timing={linearTiming({ durationInFrames: 8 })}
-      />
-      <TransitionSeries.Sequence durationInFrames={175}>
-        <Differentiator />
-      </TransitionSeries.Sequence>
-      <TransitionSeries.Transition
-        presentation={slide()}
-        timing={linearTiming({ durationInFrames: 8 })}
-      />
-      <TransitionSeries.Sequence durationInFrames={190}>
-        <TechStack />
-      </TransitionSeries.Sequence>
-      <TransitionSeries.Transition
-        presentation={wipe()}
-        timing={linearTiming({ durationInFrames: 8 })}
-      />
-      <TransitionSeries.Sequence durationInFrames={120}>
-        <CTA />
-      </TransitionSeries.Sequence>
-      <TransitionSeries.Transition
-        presentation={fade()}
-        timing={linearTiming({ durationInFrames: 8 })}
-      />
-      <TransitionSeries.Sequence durationInFrames={110}>
-        <Outro />
-      </TransitionSeries.Sequence>
-    </TransitionSeries>
+        <TransitionSeries.Sequence durationInFrames={90}>
+          <Intro />
+        </TransitionSeries.Sequence>
+        <TransitionSeries.Transition presentation={fade()} timing={linearTiming({ durationInFrames: T })} />
+        <TransitionSeries.Sequence durationInFrames={225}>
+          <Hook />
+        </TransitionSeries.Sequence>
+        <TransitionSeries.Transition presentation={slide()} timing={linearTiming({ durationInFrames: T })} />
+        <TransitionSeries.Sequence durationInFrames={310}>
+          <Problem />
+        </TransitionSeries.Sequence>
+        <TransitionSeries.Transition presentation={wipe()} timing={linearTiming({ durationInFrames: T })} />
+        <TransitionSeries.Sequence durationInFrames={285}>
+          <Solution />
+        </TransitionSeries.Sequence>
+        <TransitionSeries.Transition presentation={slide()} timing={linearTiming({ durationInFrames: T })} />
+        <TransitionSeries.Sequence durationInFrames={575}>
+          <HowItWorks />
+        </TransitionSeries.Sequence>
+        <TransitionSeries.Transition presentation={wipe()} timing={linearTiming({ durationInFrames: T })} />
+        <TransitionSeries.Sequence durationInFrames={255}>
+          <FeatureCombo />
+        </TransitionSeries.Sequence>
+        <TransitionSeries.Transition presentation={fade()} timing={linearTiming({ durationInFrames: T })} />
+        <TransitionSeries.Sequence durationInFrames={235}>
+          <Differentiator />
+        </TransitionSeries.Sequence>
+        <TransitionSeries.Transition presentation={slide()} timing={linearTiming({ durationInFrames: T })} />
+        <TransitionSeries.Sequence durationInFrames={130}>
+          <TechStack />
+        </TransitionSeries.Sequence>
+        <TransitionSeries.Transition presentation={wipe()} timing={linearTiming({ durationInFrames: T })} />
+        <TransitionSeries.Sequence durationInFrames={95}>
+          <CTA />
+        </TransitionSeries.Sequence>
+        <TransitionSeries.Transition presentation={fade()} timing={linearTiming({ durationInFrames: T })} />
+        <TransitionSeries.Sequence durationInFrames={65}>
+          <Outro />
+        </TransitionSeries.Sequence>
+      </TransitionSeries>
     </>
   );
 };
