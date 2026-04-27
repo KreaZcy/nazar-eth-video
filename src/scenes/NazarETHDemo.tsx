@@ -16,70 +16,70 @@ import { Outro } from "./Outro";
 export const NazarETHDemo: React.FC = () => {
   return (
     <TransitionSeries>
-      <TransitionSeries.Sequence durationInFrames={160}>
+      <TransitionSeries.Sequence durationInFrames={150}>
         <Intro />
       </TransitionSeries.Sequence>
       <TransitionSeries.Transition
         presentation={fade()}
         timing={linearTiming({ durationInFrames: 9 })}
       />
-      <TransitionSeries.Sequence durationInFrames={160}>
+      <TransitionSeries.Sequence durationInFrames={150}>
         <Hook />
       </TransitionSeries.Sequence>
       <TransitionSeries.Transition
         presentation={slide()}
         timing={linearTiming({ durationInFrames: 9 })}
       />
-      <TransitionSeries.Sequence durationInFrames={180}>
+      <TransitionSeries.Sequence durationInFrames={170}>
         <Problem />
       </TransitionSeries.Sequence>
       <TransitionSeries.Transition
         presentation={wipe()}
         timing={linearTiming({ durationInFrames: 9 })}
       />
-      <TransitionSeries.Sequence durationInFrames={180}>
+      <TransitionSeries.Sequence durationInFrames={170}>
         <Solution />
       </TransitionSeries.Sequence>
       <TransitionSeries.Transition
         presentation={slide()}
         timing={linearTiming({ durationInFrames: 9 })}
       />
-      <TransitionSeries.Sequence durationInFrames={290}>
+      <TransitionSeries.Sequence durationInFrames={280}>
         <HowItWorks />
       </TransitionSeries.Sequence>
       <TransitionSeries.Transition
         presentation={wipe()}
         timing={linearTiming({ durationInFrames: 9 })}
       />
-      <TransitionSeries.Sequence durationInFrames={230}>
+      <TransitionSeries.Sequence durationInFrames={220}>
         <FeatureCombo />
       </TransitionSeries.Sequence>
       <TransitionSeries.Transition
         presentation={fade()}
         timing={linearTiming({ durationInFrames: 9 })}
       />
-      <TransitionSeries.Sequence durationInFrames={190}>
+      <TransitionSeries.Sequence durationInFrames={180}>
         <Differentiator />
       </TransitionSeries.Sequence>
       <TransitionSeries.Transition
         presentation={slide()}
         timing={linearTiming({ durationInFrames: 9 })}
       />
-      <TransitionSeries.Sequence durationInFrames={140}>
+      <TransitionSeries.Sequence durationInFrames={130}>
         <TechStack />
       </TransitionSeries.Sequence>
       <TransitionSeries.Transition
         presentation={wipe()}
         timing={linearTiming({ durationInFrames: 9 })}
       />
-      <TransitionSeries.Sequence durationInFrames={100}>
+      <TransitionSeries.Sequence durationInFrames={140}>
         <CTA />
       </TransitionSeries.Sequence>
       <TransitionSeries.Transition
-        presentation={fade()}
+        presentation={wipe()}
         timing={linearTiming({ durationInFrames: 9 })}
       />
-      <TransitionSeries.Sequence durationInFrames={98}>
+      <TransitionSeries.Sequence durationInFrames={129}>
         <Outro />
       </TransitionSeries.Sequence>
     </TransitionSeries>
