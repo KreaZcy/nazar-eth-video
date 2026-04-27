@@ -1,5 +1,5 @@
 import React from "react";
-import { AbsoluteFill, Img, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig, Easing } from "remotion";
+import { AbsoluteFill, Img, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
 import { C } from "../colors";
 
 const COMBO = [
@@ -27,25 +27,19 @@ export const FeatureCombo: React.FC = () => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
 
-  const titleOpacity = interpolate(frame, [0, 12], [0, 1], {
+  const titleOpacity = interpolate(frame, [0, 20], [0, 1], {
     extrapolateRight: "clamp",
     extrapolateLeft: "clamp",
   });
 
-  const titleSlide = interpolate(frame, [0, 15], [-20, 0], {
-    extrapolateRight: "clamp",
-    extrapolateLeft: "clamp",
-    easing: Easing.bezier(0.16, 1, 0.3, 1),
-  });
-
-  const plusOpacity = interpolate(frame, [50, 65], [0, 1], {
+  const plusOpacity = interpolate(frame, [100, 120], [0, 1], {
     extrapolateRight: "clamp",
     extrapolateLeft: "clamp",
   });
 
-  const resultScale = spring({ fps, frame: frame - 80, config: { damping: 12, mass: 0.5 } });
+  const resultScale = spring({ fps, frame: frame - 140, config: { damping: 12, mass: 0.5 } });
 
-  const taglineOpacity = interpolate(frame, [110, 125], [0, 1], {
+  const taglineOpacity = interpolate(frame, [170, 190], [0, 1], {
     extrapolateRight: "clamp",
     extrapolateLeft: "clamp",
   });
@@ -61,18 +55,18 @@ export const FeatureCombo: React.FC = () => {
         fontFamily: "system-ui, sans-serif",
       }}
     >
-      <div style={{ opacity: titleOpacity, transform: `translateY(${titleSlide}px)`, textAlign: "center" as const, marginBottom: 40 }}>
+      <div style={{ opacity: titleOpacity, textAlign: "center" as const, marginBottom: 50 }}>
         <h2 style={{ fontSize: 32, fontWeight: 700, color: C.muted, margin: 0 }}>THE PERFECT COMBO</h2>
       </div>
 
-      <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
+      <div style={{ display: "flex", alignItems: "center", gap: 24 }}>
         {COMBO.map((item, i) => {
-          const cardDelay = 15 + i * 15;
-          const cardOpacity = interpolate(frame - cardDelay, [0, 12], [0, 1], {
+          const cardDelay = 25 + i * 30;
+          const cardOpacity = interpolate(frame - cardDelay, [0, 20], [0, 1], {
             extrapolateRight: "clamp",
             extrapolateLeft: "clamp",
           });
-          const cardSlide = interpolate(frame - cardDelay, [0, 10], [30, 0], {
+          const cardSlide = interpolate(frame - cardDelay, [0, 20], [40, 0], {
             extrapolateRight: "clamp",
             extrapolateLeft: "clamp",
           });

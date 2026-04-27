@@ -38,7 +38,7 @@ export const Differentiator: React.FC = () => {
     extrapolateLeft: "clamp",
   });
 
-  const titleSlide = interpolate(frame, [0, 12], [-30, 0], {
+  const titleSlide = interpolate(frame, [0, 20], [-30, 0], {
     extrapolateRight: "clamp",
     extrapolateLeft: "clamp",
     easing: Easing.bezier(0.16, 1, 0.3, 1),
@@ -62,7 +62,7 @@ export const Differentiator: React.FC = () => {
         <div
           style={{
             height: 4,
-            width: interpolate(frame, [5, 30], [0, 220], {
+            width: interpolate(frame, [5, 40], [0, 220], {
               extrapolateRight: "clamp",
               extrapolateLeft: "clamp",
               easing: Easing.bezier(0.16, 1, 0.3, 1),
@@ -77,12 +77,12 @@ export const Differentiator: React.FC = () => {
 
       <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
         {FEATURES.map((f, i) => {
-          const delay = i * 15;
-          const cardOpacity = interpolate(frame, [20 + delay, 30 + delay], [0, 1], {
+          const delay = i * 35;
+          const cardOpacity = interpolate(frame, [25 + delay, 45 + delay], [0, 1], {
             extrapolateRight: "clamp",
             extrapolateLeft: "clamp",
           });
-          const cardX = interpolate(frame, [20 + delay, 35 + delay], [60, 0], {
+          const cardX = interpolate(frame, [25 + delay, 50 + delay], [60, 0], {
             extrapolateRight: "clamp",
             extrapolateLeft: "clamp",
             easing: Easing.bezier(0.16, 1, 0.3, 1),
