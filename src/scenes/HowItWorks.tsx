@@ -72,9 +72,8 @@ const STEPS = [
   },
 ] as const;
 
-const IMG_W = 200;
-const IMG_H = 140;
-const IMG_GAP = 8;
+const IMG_H = 432;
+const IMG_GAP = 12;
 
 export const HowItWorks: React.FC = () => {
   const frame = useCurrentFrame();
@@ -216,9 +215,6 @@ export const HowItWorks: React.FC = () => {
 
             if (!isActive) return null;
 
-            const count = step.images.length;
-            const totalW = count * IMG_W + (count - 1) * IMG_GAP;
-
             return (
               <div
                 key={step.num}
@@ -226,7 +222,8 @@ export const HowItWorks: React.FC = () => {
                   display: "flex",
                   gap: IMG_GAP,
                   justifyContent: "flex-end",
-                  width: totalW,
+                  alignItems: "center",
+                  flex: 1,
                 }}
               >
                 {step.images.map((img, j) => {
@@ -252,7 +249,6 @@ export const HowItWorks: React.FC = () => {
                     <div
                       key={j}
                       style={{
-                        width: IMG_W,
                         height: IMG_H,
                         borderRadius: 10,
                         overflow: "hidden",
@@ -260,11 +256,14 @@ export const HowItWorks: React.FC = () => {
                         opacity: imgOp,
                         transform: `scale(${imgScale})`,
                         background: C.bgCard,
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
                       }}
                     >
                       <Img
                         src={staticFile(img)}
-                        style={{ width: "100%", height: "100%", objectFit: "contain" }}
+                        style={{ height: "100%", objectFit: "contain" }}
                       />
                     </div>
                   );
