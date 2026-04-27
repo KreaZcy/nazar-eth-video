@@ -72,166 +72,13 @@ const STEPS = [
   },
 ] as const;
 
-const IMG_W = 180;
-const IMG_H = 120;
+const IMG_W = 160;
+const IMG_H = 108;
 const IMG_GAP = 8;
-
-const StepImages: React.FC<{
-  images: readonly string[];
-  localFrame: number;
-  stepStart: number;
-}> = ({ images, localFrame, stepStart }) => {
-  const count = images.length;
-  const totalW = count * IMG_W + (count - 1) * IMG_GAP;
-
-  return (
-    <div
-      style={{
-        display: "flex",
-        gap: IMG_GAP,
-        justifyContent: "flex-end",
-        width: totalW,
-      }}
-    >
-      {images.map((img, i) => {
-        const imgDelay = stepStart + i * 8;
-        const imgScale = interpolate(
-          localFrame - imgDelay,
-          [0, 12],
-          [0.5, 1],
-          {
-            extrapolateRight: "clamp",
-            extrapolateLeft: "clamp",
-            easing: Easing.bezier(0.34, 1.56, 0.64, 1),
-          },
-        );
-        const imgOp = interpolate(
-          localFrame,
-          [imgDelay, imgDelay + 6],
-          [0, 1],
-          { extrapolateRight: "clamp", extrapolateLeft: "clamp" },
-        );
-
-        return (
-          <div
-            key={i}
-            style={{
-              width: IMG_W,
-              height: IMG_H,
-              borderRadius: 10,
-              overflow: "hidden",
-              border: "1px solid rgba(255,255,255,0.1)",
-              opacity: imgOp,
-              transform: `scale(${imgScale})`,
-              background: C.bgCard,
-            }}
-          >
-            <Img
-              src={staticFile(img)}
-              style={{ width: "100%", height: "100%", objectFit: "cover" }}
-            />
-          </div>
-        );
-      })}
-    </div>
-  );
-};
-
-const Step: React.FC<{
-  step: (typeof STEPS)[number];
-  index: number;
-  startFrame: number;
-  durationPerStep: number;
-}> = ({ step, index, startFrame, durationPerStep }) => {
-  const frame = useCurrentFrame();
-  const { fps } = useVideoConfig();
-
-  const localFrame = frame - startFrame;
-  const stepStart = index * durationPerStep;
-
-  const opacity = interpolate(
-    localFrame,
-    [stepStart, stepStart + 5],
-    [0, 1],
-    { extrapolateRight: "clamp", extrapolateLeft: "clamp" },
-  );
-
-  const slideX = interpolate(
-    localFrame,
-    [stepStart, stepStart + 10],
-    [40, 0],
-    {
-      extrapolateRight: "clamp",
-      extrapolateLeft: "clamp",
-      easing: Easing.bezier(0.16, 1, 0.3, 1),
-    },
-  );
-
-  const iconScale = spring({
-    fps,
-    frame: localFrame,
-    config: { damping: 12 },
-    delay: stepStart,
-    durationInFrames: 15,
-  });
-
-  if (localFrame < stepStart) return null;
-
-  return (
-    <div
-      style={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "space-between",
-        opacity,
-        transform: `translateX(${slideX}px)`,
-        marginBottom: 8,
-        gap: 20,
-      }}
-    >
-      <div style={{ display: "flex", alignItems: "center", gap: 16, flexShrink: 0 }}>
-        <div
-          style={{
-            width: 44,
-            height: 44,
-            borderRadius: 12,
-            background:
-              step.num === "3"
-                ? C.orange
-                : step.num === "5"
-                  ? C.green
-                  : C.blue,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            fontSize: 20,
-            fontWeight: 700,
-            color: C.white,
-            flexShrink: 0,
-            transform: `scale(${iconScale})`,
-          }}
-        >
-          {step.num}
-        </div>
-        <div>
-          <div style={{ fontSize: 22, fontWeight: 600, color: C.white }}>
-            {step.title}
-          </div>
-          <div style={{ fontSize: 15, color: C.muted }}>{step.desc}</div>
-        </div>
-      </div>
-
-      <StepImages
-        images={step.images}
-        localFrame={localFrame}
-        stepStart={stepStart}
-      />
-    </div>
-  );
-};
 
 export const HowItWorks: React.FC = () => {
   const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
 
   const titleOpacity = interpolate(frame, [0, 10], [0, 1], {
     extrapolateRight: "clamp",
@@ -253,6 +100,11 @@ export const HowItWorks: React.FC = () => {
   const STEPS_START = 30;
   const DURATION_PER_STEP = 50;
 
+  const activeStep = Math.min(
+    Math.floor(Math.max(0, frame - STEPS_START) / DURATION_PER_STEP),
+    5,
+  );
+
   return (
     <AbsoluteFill
       style={{
@@ -264,16 +116,8 @@ export const HowItWorks: React.FC = () => {
         fontFamily: "system-ui, sans-serif",
       }}
     >
-      <div style={{ opacity: titleOpacity, transform: `translateY(${titleSlide}px)` }}>
-        <h2
-          style={{
-            fontSize: 40,
-            fontWeight: 800,
-            margin: 0,
-            color: C.white,
-            letterSpacing: "-0.02em",
-          }}
-        >
+      <div style={{ opacity: titleOpacity, transform: `translateY(${titleSlide}px)`, marginBottom: 20 }}>
+        <h2 style={{ fontSize: 40, fontWeight: 800, margin: 0, color: C.white, letterSpacing: "-0.02em" }}>
           How It Works
         </h2>
         <div
@@ -283,21 +127,152 @@ export const HowItWorks: React.FC = () => {
             background: `linear-gradient(90deg, ${C.blue}, ${C.green})`,
             borderRadius: 2,
             marginTop: 8,
-            marginBottom: 24,
           }}
         />
       </div>
 
-      <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
-        {STEPS.map((step, i) => (
-          <Step
-            key={step.num}
-            step={step}
-            index={i}
-            startFrame={STEPS_START}
-            durationPerStep={DURATION_PER_STEP}
-          />
-        ))}
+      <div style={{ display: "flex", gap: 40, flex: 1 }}>
+        {/* Left: step list */}
+        <div style={{ display: "flex", flexDirection: "column", gap: 6, flexShrink: 0, width: 380 }}>
+          {STEPS.map((step, i) => {
+            const localFrame = frame - STEPS_START;
+            const stepStart = i * DURATION_PER_STEP;
+
+            const opacity = interpolate(localFrame, [stepStart, stepStart + 5], [0, 1], {
+              extrapolateRight: "clamp",
+              extrapolateLeft: "clamp",
+            });
+
+            const slideX = interpolate(localFrame, [stepStart, stepStart + 10], [40, 0], {
+              extrapolateRight: "clamp",
+              extrapolateLeft: "clamp",
+              easing: Easing.bezier(0.16, 1, 0.3, 1),
+            });
+
+            const iconScale = spring({ fps, frame: localFrame, config: { damping: 12 }, delay: stepStart, durationInFrames: 15 });
+
+            const isActive = i === activeStep && localFrame >= stepStart;
+
+            if (localFrame < stepStart) return null;
+
+            return (
+              <div
+                key={step.num}
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 16,
+                  opacity,
+                  transform: `translateX(${slideX}px)`,
+                  background: isActive ? `${C.bgCard}` : "transparent",
+                  borderRadius: 10,
+                  padding: isActive ? "10px 14px" : "10px 14px",
+                  border: isActive ? `1px solid ${C.blue}40` : "1px solid transparent",
+                  transition: "background 0.2s",
+                }}
+              >
+                <div
+                  style={{
+                    width: 40,
+                    height: 40,
+                    borderRadius: 10,
+                    background: step.num === "3" ? C.orange : step.num === "5" ? C.green : C.blue,
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    fontSize: 18,
+                    fontWeight: 700,
+                    color: C.white,
+                    flexShrink: 0,
+                    transform: `scale(${iconScale})`,
+                  }}
+                >
+                  {step.num}
+                </div>
+                <div>
+                  <div style={{ fontSize: 20, fontWeight: 600, color: C.white }}>
+                    {step.title}
+                  </div>
+                  <div style={{ fontSize: 14, color: C.muted }}>{step.desc}</div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Right: current step images */}
+        <div
+          style={{
+            flex: 1,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "flex-end",
+          }}
+        >
+          {STEPS.map((step, i) => {
+            const localFrame = frame - STEPS_START;
+            const stepStart = i * DURATION_PER_STEP;
+            const isActive = i === activeStep && localFrame >= stepStart;
+
+            if (!isActive) return null;
+
+            const count = step.images.length;
+            const totalW = count * IMG_W + (count - 1) * IMG_GAP;
+
+            return (
+              <div
+                key={step.num}
+                style={{
+                  display: "flex",
+                  gap: IMG_GAP,
+                  justifyContent: "flex-end",
+                  width: totalW,
+                }}
+              >
+                {step.images.map((img, j) => {
+                  const imgDelay = stepStart + j * 8;
+                  const imgScale = interpolate(
+                    localFrame - imgDelay,
+                    [0, 12],
+                    [0.5, 1],
+                    {
+                      extrapolateRight: "clamp",
+                      extrapolateLeft: "clamp",
+                      easing: Easing.bezier(0.34, 1.56, 0.64, 1),
+                    },
+                  );
+                  const imgOp = interpolate(
+                    localFrame,
+                    [imgDelay, imgDelay + 6],
+                    [0, 1],
+                    { extrapolateRight: "clamp", extrapolateLeft: "clamp" },
+                  );
+
+                  return (
+                    <div
+                      key={j}
+                      style={{
+                        width: IMG_W,
+                        height: IMG_H,
+                        borderRadius: 10,
+                        overflow: "hidden",
+                        border: "1px solid rgba(255,255,255,0.1)",
+                        opacity: imgOp,
+                        transform: `scale(${imgScale})`,
+                        background: C.bgCard,
+                      }}
+                    >
+                      <Img
+                        src={staticFile(img)}
+                        style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                      />
+                    </div>
+                  );
+                })}
+              </div>
+            );
+          })}
+        </div>
       </div>
     </AbsoluteFill>
   );
