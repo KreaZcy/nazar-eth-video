@@ -72,8 +72,8 @@ const STEPS = [
   },
 ] as const;
 
-const IMG_W = 160;
-const IMG_H = 108;
+const IMG_W = 200;
+const IMG_H = 140;
 const IMG_GAP = 8;
 
 export const HowItWorks: React.FC = () => {
@@ -264,7 +264,7 @@ export const HowItWorks: React.FC = () => {
                     >
                       <Img
                         src={staticFile(img)}
-                        style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                        style={{ width: "100%", height: "100%", objectFit: "contain" }}
                       />
                     </div>
                   );
