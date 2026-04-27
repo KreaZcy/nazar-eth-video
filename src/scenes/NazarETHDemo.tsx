@@ -20,15 +20,15 @@ export const NazarETHDemo: React.FC = () => {
   return (
     <>
       <Audio src={staticFile("/narration/intro.mp3")} startFrom={0} />
-      <Audio src={staticFile("/narration/hook.mp3")} startFrom={90} />
-      <Audio src={staticFile("/narration/problem.mp3")} startFrom={315} />
-      <Audio src={staticFile("/narration/solution.mp3")} startFrom={625} />
-      <Audio src={staticFile("/narration/howitworks.mp3")} startFrom={910} />
-      <Audio src={staticFile("/narration/featurecombo.mp3")} startFrom={1485} />
-      <Audio src={staticFile("/narration/differentiator.mp3")} startFrom={1740} />
-      <Audio src={staticFile("/narration/techstack.mp3")} startFrom={1975} />
-      <Audio src={staticFile("/narration/cta.mp3")} startFrom={2105} />
-      <Audio src={staticFile("/narration/outro.mp3")} startFrom={2200} />
+      <Audio src={staticFile("/narration/hook.mp3")} startFrom={96} />
+      <Audio src={staticFile("/narration/problem.mp3")} startFrom={327} />
+      <Audio src={staticFile("/narration/solution.mp3")} startFrom={643} />
+      <Audio src={staticFile("/narration/howitworks.mp3")} startFrom={934} />
+      <Audio src={staticFile("/narration/featurecombo.mp3")} startFrom={1515} />
+      <Audio src={staticFile("/narration/differentiator.mp3")} startFrom={1776} />
+      <Audio src={staticFile("/narration/techstack.mp3")} startFrom={2017} />
+      <Audio src={staticFile("/narration/cta.mp3")} startFrom={2153} />
+      <Audio src={staticFile("/narration/outro.mp3")} startFrom={2254} />
 
       <TransitionSeries>
         <TransitionSeries.Sequence durationInFrames={90}>
