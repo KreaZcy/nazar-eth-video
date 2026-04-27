@@ -16,49 +16,49 @@ import { Outro } from "./Outro";
 export const NazarETHDemo: React.FC = () => {
   return (
     <TransitionSeries>
-      <TransitionSeries.Sequence durationInFrames={150}>
+      <TransitionSeries.Sequence durationInFrames={140}>
         <Intro />
       </TransitionSeries.Sequence>
       <TransitionSeries.Transition
         presentation={fade()}
         timing={linearTiming({ durationInFrames: 8 })}
       />
-      <TransitionSeries.Sequence durationInFrames={190}>
+      <TransitionSeries.Sequence durationInFrames={185}>
         <Hook />
       </TransitionSeries.Sequence>
       <TransitionSeries.Transition
         presentation={slide()}
         timing={linearTiming({ durationInFrames: 8 })}
       />
-      <TransitionSeries.Sequence durationInFrames={210}>
+      <TransitionSeries.Sequence durationInFrames={200}>
         <Problem />
       </TransitionSeries.Sequence>
       <TransitionSeries.Transition
         presentation={wipe()}
         timing={linearTiming({ durationInFrames: 8 })}
       />
-      <TransitionSeries.Sequence durationInFrames={200}>
+      <TransitionSeries.Sequence durationInFrames={195}>
         <Solution />
       </TransitionSeries.Sequence>
       <TransitionSeries.Transition
         presentation={slide()}
         timing={linearTiming({ durationInFrames: 8 })}
       />
-      <TransitionSeries.Sequence durationInFrames={280}>
+      <TransitionSeries.Sequence durationInFrames={270}>
         <HowItWorks />
       </TransitionSeries.Sequence>
       <TransitionSeries.Transition
         presentation={wipe()}
         timing={linearTiming({ durationInFrames: 8 })}
       />
-      <TransitionSeries.Sequence durationInFrames={220}>
+      <TransitionSeries.Sequence durationInFrames={215}>
         <FeatureCombo />
       </TransitionSeries.Sequence>
       <TransitionSeries.Transition
         presentation={fade()}
         timing={linearTiming({ durationInFrames: 8 })}
       />
-      <TransitionSeries.Sequence durationInFrames={180}>
+      <TransitionSeries.Sequence durationInFrames={175}>
         <Differentiator />
       </TransitionSeries.Sequence>
       <TransitionSeries.Transition
@@ -72,14 +72,14 @@ export const NazarETHDemo: React.FC = () => {
         presentation={wipe()}
         timing={linearTiming({ durationInFrames: 8 })}
       />
-      <TransitionSeries.Sequence durationInFrames={130}>
+      <TransitionSeries.Sequence durationInFrames={120}>
         <CTA />
       </TransitionSeries.Sequence>
       <TransitionSeries.Transition
-        presentation={wipe()}
+        presentation={fade()}
         timing={linearTiming({ durationInFrames: 8 })}
       />
-      <TransitionSeries.Sequence durationInFrames={50}>
+      <TransitionSeries.Sequence durationInFrames={110}>
         <Outro />
       </TransitionSeries.Sequence>
     </TransitionSeries>

@@ -11,9 +11,10 @@ export const Outro: React.FC = () => {
   const urlOpacity = interpolate(frame, [25, 45], [0, 1], { extrapolateRight: "clamp", extrapolateLeft: "clamp" });
   const badgeOpacity = interpolate(frame, [35, 55], [0, 1], { extrapolateRight: "clamp", extrapolateLeft: "clamp" });
   const glowOpacity = interpolate(frame, [0, 30], [0, 0.5], { extrapolateRight: "clamp" });
+  const fadeOut = interpolate(frame, [80, 110], [1, 0], { extrapolateRight: "clamp", extrapolateLeft: "clamp" });
 
   return (
-    <AbsoluteFill style={{ background: C.bg, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", fontFamily: "system-ui, sans-serif" }}>
+    <AbsoluteFill style={{ background: C.bg, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", fontFamily: "system-ui, sans-serif", opacity: fadeOut }}>
       <div style={{ position: "absolute", width: 600, height: 600, borderRadius: "50%", background: `radial-gradient(circle, ${C.blue}22 0%, transparent 70%)`, filter: "blur(80px)", opacity: glowOpacity }} />
 
       <div
