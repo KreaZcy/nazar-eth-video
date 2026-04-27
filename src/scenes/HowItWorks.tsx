@@ -81,8 +81,6 @@ const StepImages: React.FC<{
   localFrame: number;
   stepStart: number;
 }> = ({ images, localFrame, stepStart }) => {
-  const { fps } = useVideoConfig();
-
   const count = images.length;
   const totalW = count * IMG_W + (count - 1) * IMG_GAP;
 
@@ -97,13 +95,16 @@ const StepImages: React.FC<{
     >
       {images.map((img, i) => {
         const imgDelay = stepStart + i * 8;
-        const imgScale = spring({
-          fps,
-          frame: localFrame,
-          config: { damping: 14, mass: 0.6 },
-          delay: imgDelay,
-          durationInFrames: 12,
-        });
+        const imgScale = interpolate(
+          localFrame - imgDelay,
+          [0, 12],
+          [0.5, 1],
+          {
+            extrapolateRight: "clamp",
+            extrapolateLeft: "clamp",
+            easing: Easing.bezier(0.34, 1.56, 0.64, 1),
+          },
+        );
         const imgOp = interpolate(
           localFrame,
           [imgDelay, imgDelay + 6],
