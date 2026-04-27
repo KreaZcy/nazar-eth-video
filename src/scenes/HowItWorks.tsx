@@ -12,7 +12,7 @@ import { C } from "../colors";
 const STEPS = [
   { icon: "1", title: "Connect Wallet + Strava", desc: "OAuth 2.0 | EIP-712" },
   { icon: "2", title: "Create Challenge", desc: "Pick sport · distance · stake" },
-  { icon: "3", title: "Deposit USDC", desc: "Locked in smart contract" },
+  { icon: "3", title: "Deposit USDC", desc: "Locked · earns yield while you train" },
   { icon: "4", title: "Train & Sync", desc: "Strava GPX → oracle verified" },
   { icon: "5", title: "Withdraw Milestones", desc: "10% back per 10% progress" },
   { icon: "6", title: "Claim Territory", desc: "Own your fitness domain" },

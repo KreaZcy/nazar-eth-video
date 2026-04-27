@@ -12,7 +12,7 @@ const COMBO = [
   {
     brand: "USDC",
     color: "#2775CA",
-    feature: "Stablecoin staking escrow",
+    feature: "Yield-bearing escrow",
     logo: "/logos/usdc-real.png",
   },
   {

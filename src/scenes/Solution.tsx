@@ -2,7 +2,7 @@ import { AbsoluteFill, Img, interpolate, spring, staticFile, useCurrentFrame, us
 import { C } from "../colors";
 
 const PILLARS = [
-  { logo: "/logos/usdc-real.png", title: "Stake USDC", desc: "Lock real value\nas commitment", color: C.blue, delay: 70 },
+  { logo: "/logos/usdc-real.png", title: "Stake USDC", desc: "Earn yield while\nyou commit", color: C.blue, delay: 70 },
   { logo: "/logos/strava-real.png", title: "Strava Oracle", desc: "GPS-verified\nactivity data", color: "#FC4C02", delay: 95 },
   { logo: "/logos/base-real.png", title: "Base Escrow", desc: "Trustless\nonchain locks", color: C.lightBlue, delay: 120 },
 ];
